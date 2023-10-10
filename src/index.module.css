@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/icon?family=Comfortaa);
+
+* {
+    height: 100%;
+    width: 100%;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+root, body {
+    margin: 0;
+    background: var(--main-bg-color);
+}
+
+:root {
+    --main-bg-color: rgb(255, 255, 255);
+    --secondarry-bg-color: rgb(50, 73, 166);
+    --thirdly-bg-color: rgb(141, 218, 236);
+    --quote-background: rgb(91, 91, 91);
+    --primary-fg-color: #232328;
+}
+
+@media (max-width: 2560px) {
+    * {
+        font-size: 64px;
+    }
+}
+
+@media (max-width: 1470px) {
+    * {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1024px) {
+    * {
+        font-size: 16px;
+    }
+}

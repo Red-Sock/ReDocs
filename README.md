@@ -13,7 +13,7 @@ decent replacements this projects takes this journey
 ## MVP
 - [ ] Valid markdown display
 - [ ] Files | Topics tree view 
-- 
+
 ## Features
 - [ ] Search
 - [ ] Editing

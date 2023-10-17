@@ -14,8 +14,12 @@ jobs:
         with:
           version:  20.5.0
 
-      - name: Compile and publish to gh pages
+      - name: Build
         run: |
           npm install
-          npm run install-gp
-          npm run deploy
+          npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

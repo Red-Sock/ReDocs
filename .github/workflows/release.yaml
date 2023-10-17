@@ -1,0 +1,19 @@
+name: master-actions
+run-name: RELEASE
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tag-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v1
+
+      - name: Compile and publish to gh pages
+        run: |
+          npm install
+          npm run install-gp
+          npm run deploy

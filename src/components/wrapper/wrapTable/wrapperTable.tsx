@@ -1,18 +1,6 @@
 import "./wrapperTable.css";
 
 function WrapperTable(props: { name: string[]; value: string[][] }) {
-  // function deleteHTML(e: any) {
-  //   const prop: any = e;
-  //   const matches: string[] = [];
-  //   let match: any;
-  //   const pattern = /<[^>]+>([^<]+)/g;
-  //   while ((match = pattern.exec(prop)) !== null) {
-  //     matches.push(match[1]);
-  //     return matches;
-  //   }
-  //   return prop;
-  // }
-
   return (
     <div>
       <table className="tableWrap">

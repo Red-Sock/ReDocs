@@ -11,7 +11,7 @@ function WrapperTable(props: { name: string[]; value: string[][] }) {
   //     return matches;
   //   }
   //   return prop;
-  // } удаляет теги из текста
+  // }
 
   return (
     <div>

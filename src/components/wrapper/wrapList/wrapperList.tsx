@@ -1,34 +1,28 @@
 import "./wrapperList.css";
 
-function WrapperList(props: {
-  list: [
-    {
-      content: string[];
-    }
-  ];
-  isNumerated: boolean;
-}) {
-  if (props.isNumerated) {
-    return (
-      <div>
-        <ol className="wrapList">
-          {props.list.map((e) => {
-            return <li className="wrapElemList">{e.content}</li>;
-          })}
-        </ol>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <ul className="wrapList">
-          {props.list.map((e) => {
-            return <li className="wrapElemList">{e.content}</li>;
-          })}
-        </ul>
-      </div>
-    );
-  }
+interface ListItem {
+    name: string;
+    innerList?: ListItem[];
 }
 
-export default WrapperList;
+export function WrapperList(props: {
+    content: ListItem[];
+    isNumerated: boolean;
+}) {
+    const res = props.content.map((e) => {
+        return <li className="wrapElemList">
+            {e.name}
+            {e.innerList && e.innerList.length !== 0 ?
+                <WrapperList content={e.innerList} isNumerated={props.isNumerated}/> : <></>}
+        </li>
+    })
+
+    return <div>
+        {
+            props.isNumerated ?
+                <ol className="wrapList" children={res}/>
+                :
+                <ul className="wrapList" children={res}/>
+        }
+    </div>
+}

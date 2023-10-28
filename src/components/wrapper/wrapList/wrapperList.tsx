@@ -54,9 +54,9 @@ function WrapperList(props: { content: ListItem[]; isNumerated: boolean }) {
 export default WrapperList;
 // function WrapperList(props: { content: ListItem[]; isNumerated: boolean }) {
 //   console.log(props);
-//   const res = props.content.map((e) => {
+//   const res = props.content.map((e, index) => {
 //     return (
-//       <li className="wrapElemList">
+//       <li key={index} className="wrapElemList">
 //         {e.name}
 //         {e.innerList && e.innerList.length !== 0 ? (
 //           <WrapperList content={e.innerList} isNumerated={props.isNumerated} />

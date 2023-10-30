@@ -13,7 +13,6 @@ export function Home() {
       window.location.replace(url);
     });
   }
-
   return (
     <div className={cls.Home}>
       <div className={cls.sidebarWrap}>Боковое меню-дерево</div>

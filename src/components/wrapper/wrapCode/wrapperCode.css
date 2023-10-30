@@ -1,0 +1,19 @@
+code {
+  border: 1px solid #87f8ff;
+  border-radius: 20px;
+  padding: 16px;
+  font-size: 0.5em;
+  display: block;
+}
+
+.keyword {
+  color: #0077cc;
+}
+
+.string {
+  color: #22aa22;
+}
+
+.comment {
+  color: #999;
+}

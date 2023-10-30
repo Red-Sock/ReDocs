@@ -6,14 +6,6 @@ code {
   display: block;
 }
 
-.keyword {
-  color: #0077cc;
-}
-
-.string {
-  color: #22aa22;
-}
-
-.comment {
-  color: #999;
+code span {
+  font-size: inherit;
 }

@@ -2,8 +2,13 @@ import "./wrapperCode.css";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 
-export default function WrapperCode(props: { content: string }) {
-  const highlightCode = hljs.highlightAuto(props.content).value;
+export default function WrapperCode(props: {
+  content: string;
+  language: string;
+}) {
+  const highlightCode = hljs.highlight(props.content, {
+    language: props.language,
+  }).value;
 
   return (
     <div>

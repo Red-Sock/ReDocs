@@ -2,6 +2,7 @@ import cls from "./home.module.css";
 
 import { useState } from "react";
 import { getResourceURLs } from "../../services/file-fetcher";
+import WrapperSideBar from "../../components/wrapper/wrapSideBar/wrapperSideBar";
 
 export function Home() {
   const [pageContent, setPageContent] = useState(`
@@ -15,7 +16,10 @@ export function Home() {
   }
   return (
     <div className={cls.Home}>
-      <div className={cls.sidebarWrap}>Боковое меню-дерево</div>
+      <div className={cls.sidebarWrap}>
+        Боковое меню-дерево
+        <WrapperSideBar />
+      </div>
       <div className={cls.contentWrap}>
         Контент
         {/*<Routes>*/}

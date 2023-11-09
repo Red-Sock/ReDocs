@@ -1,12 +1,12 @@
 
 import {TreeItem} from "@mui/x-tree-view";
+
 import {NodeItem} from "../../../entities/node/NodeItem";
 
 export function TreeNode(props: {
     node: NodeItem,
     openNode: (node: NodeItem) => void,
 }) {
-
     return (
         <>
             <TreeItem
@@ -25,7 +25,7 @@ export function TreeNode(props: {
                     props.node.inner &&
                     props.node.inner.length > 0 ?
                         props.node.inner.map((c: any) => {
-                            return <TreeItem
+                            return <TreeNode
                                 node={c}
                                 openNode={props.openNode}
                             />

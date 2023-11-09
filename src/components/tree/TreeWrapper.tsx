@@ -1,4 +1,4 @@
-import cls from './TreeWrapper.css'
+import './TreeWrapper.css'
 
 import {TreeView} from "@mui/x-tree-view";
 
@@ -6,10 +6,8 @@ import {NodeItem} from "../../entities/node/NodeItem";
 
 import {IconCollapsed} from "../../assets/treeIcon/IconCollapsed";
 import {IconExpaned} from "../../assets/treeIcon/IconExpaned";
+import {TreeNode} from "./node/TreeNode";
 
-function NodeIcon(props: { node: any, openNode: (link: NodeItem) => void }) {
-    return null;
-}
 
 export function TreeWrapper(
     props: {
@@ -28,7 +26,7 @@ export function TreeWrapper(
                     {
                         props.nodes.map(
                             (elem: any) => {
-                                return <NodeIcon
+                                return <TreeNode
                                     node={elem}
                                     openNode={props.openNode}
                                 />

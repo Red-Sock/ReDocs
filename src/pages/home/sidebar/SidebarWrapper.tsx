@@ -1,9 +1,6 @@
 import "./SidebarWrapper.css";
-import {NodeItem} from "../../entities/node/NodeItem";
-
-function CollapsibleTree(props: { nodes: NodeItem[], openNode: () => void }) {
-    return null;
-}
+import {NodeItem} from "../../../entities/node/NodeItem";
+import {TreeWrapper} from "../../../components/tree/TreeWrapper";
 
 export default function SidebarWrapper() {
     const openNode = function () {
@@ -32,7 +29,7 @@ export default function SidebarWrapper() {
 
     return (
         <div className="wrapperSideBar">
-            <CollapsibleTree nodes={nodes} openNode={openNode}/>
+            <TreeWrapper nodes={nodes} openNode={openNode}/>
         </div>
     );
 }

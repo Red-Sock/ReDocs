@@ -1,12 +1,22 @@
 import {TreeItem} from "@mui/x-tree-view";
 
+export interface NodeItem {
+    name: string;
+    link: string;
+    inner?: NodeItem[];
+}
+
 export function Node(props: {
-                         nextNodeId: () => string,
-                         openLink: (link: string) => void,
-                         node: { name: string, link: string, childs: any[] }
-                     }
-) {
-    const nodeId = props.nextNodeId()
+    node: NodeItem,
+    openNode: (node: NodeItem) => void,
+}) {
+    let counter = 1;
+    const nextNodeId = function (): string {
+        return props.node.name + (counter++).toString()
+    }
+
+    const nodeId = nextNodeId()
+
     return (
         <>
             <TreeItem nodeId={nodeId}
@@ -15,20 +25,19 @@ export function Node(props: {
                       sx={{boxSizing: "content-box", display: "inline-block"}}
                       onClick={() => {
                           if (props.node.link.length != 0) {
-                              props.openLink(props.node.link)
+                              props.openNode(props.node)
                           }
                       }
                       }>
                 {
-                    props.node.childs &&
-                    props.node.childs.length > 0 ?
-                        props.node.childs.map((c: any) => {
-                            return <Node nextNodeId={props.nextNodeId}
-                                         openLink={props.openLink}
-                                         node={c}
-
+                    props.node.inner &&
+                    props.node.inner.length > 0 ?
+                        props.node.inner.map((c: any) => {
+                            return <Node
+                                node={c}
+                                openNode={props.openNode}
                             />
-                        }) : ""
+                        }) : null
                 }
             </TreeItem>
         </>

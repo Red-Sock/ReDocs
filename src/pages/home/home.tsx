@@ -17,7 +17,6 @@ export function Home() {
   return (
     <div className={cls.Home}>
       <div className={cls.sidebarWrap}>
-        Боковое меню-дерево
         <WrapperSideBar />
       </div>
       <div className={cls.contentWrap}>

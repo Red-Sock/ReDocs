@@ -1,10 +1,11 @@
-import "./wrapperSideBar.css";
+import "./SidebarWrapper.css";
+import {NodeItem} from "../../entities/node/NodeItem";
 
-import {CollapsibleTree} from "../../../sections/foldableTree/collapsibleTree";
+function CollapsibleTree(props: { nodes: NodeItem[], openNode: () => void }) {
+    return null;
+}
 
-import {NodeItem} from "../../tree/node";
-
-export default function WrapperSideBar() {
+export default function SidebarWrapper() {
     const openNode = function () {
         //TODO придумать как открывать страницы
     }

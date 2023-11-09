@@ -1,32 +1,34 @@
-import cls from './sidebar.module.css'
+import cls from './TreeWrapper.css'
 
 import {TreeView} from "@mui/x-tree-view";
 
-import {FoldedIcon} from '../../components/tree/foldedIcon';
-import {UnfoldedIcon} from '../../components/tree/unfoldedIcon';
+import {NodeItem} from "../../entities/node/NodeItem";
 
-import {NodeItem} from "../../components/tree/node";
+import {IconCollapsed} from "../../assets/treeIcon/IconCollapsed";
+import {IconExpaned} from "../../assets/treeIcon/IconExpaned";
 
-import {Node} from "../../components/tree/node";
+function NodeIcon(props: { node: any, openNode: (link: NodeItem) => void }) {
+    return null;
+}
 
-export function CollapsibleTree(
+export function TreeWrapper(
     props: {
         nodes: NodeItem[];
         openNode(link: NodeItem): void;
     }
 ) {
     return (
-        <div className={cls.Sidebar}>
-            <div className={cls.Content}>
+        <div className="Sidebar">
+            <div className="Content">
                 <TreeView
                     aria-label="Documentation" // TODO заменить на переменную, которую будем брать откуда-то
-                    defaultCollapseIcon={<FoldedIcon/>}
-                    defaultExpandIcon={<UnfoldedIcon/>}
+                    defaultCollapseIcon={<IconCollapsed/>}
+                    defaultExpandIcon={<IconExpaned/>}
                 >
                     {
                         props.nodes.map(
                             (elem: any) => {
-                                return <Node
+                                return <NodeIcon
                                     node={elem}
                                     openNode={props.openNode}
                                 />

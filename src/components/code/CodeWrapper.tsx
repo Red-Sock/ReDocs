@@ -1,8 +1,8 @@
-import "./wrapperCode.css";
+import "./CodeWrapper.css";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 
-export default function WrapperCode(props: {
+export function CodeWrapper(props: {
   content: string;
   language: string;
 }) {

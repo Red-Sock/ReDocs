@@ -1,6 +1,6 @@
-import "./wrapperTable.css";
+import "./TableWrapper.css";
 
-function WrapperTable(props: { name: string[]; value: string[][] }) {
+function TableWrapper(props: { name: string[]; value: string[][] }) {
   return (
     <div>
       <table className="tableWrap">
@@ -31,4 +31,4 @@ function WrapperTable(props: { name: string[]; value: string[][] }) {
     </div>
   );
 }
-export default WrapperTable;
+export default TableWrapper;

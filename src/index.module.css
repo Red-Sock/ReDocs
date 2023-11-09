@@ -24,7 +24,20 @@ root, body {
 }
 
 
-* {
-    font-size: 32px;
+@media (max-width: 1024px) {
+    * {
+        font-size: 8px;
+    }
 }
 
+@media (max-width: 1470px) {
+    * {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 2560px) {
+    * {
+        font-size: 32px;
+    }
+}

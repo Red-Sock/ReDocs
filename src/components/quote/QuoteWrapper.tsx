@@ -1,6 +1,6 @@
-import "./wrapperQuote.css";
+import "./QuoteWrapper.css";
 
-function wrapperQuote(props: string) {
+function quoteWrapper(props: string) {
   return (
     <div>
       <blockquote className="wrapQuote">
@@ -10,4 +10,4 @@ function wrapperQuote(props: string) {
   );
 }
 
-export default wrapperQuote;
+export default quoteWrapper;

@@ -1,9 +1,4 @@
 .Home {
-    box-sizing: border-box;
-
-
-    width: 100%;
-    height: 100%;
 
     display: flex;
     flex-direction: row;
@@ -13,19 +8,19 @@
     overflow-y: scroll;
 }
 
-.sidebarWrap {
+.sidebarHome {
     flex: 2;
 
     border: red solid;
 }
 
-.contentWrap {
+.contentHome {
     flex: 5;
 
     border: green solid;
 }
 
-.sideMenuWrap {
+.sideMenuHome {
     flex: 2;
 
     border: yellow solid;

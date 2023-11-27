@@ -5,6 +5,8 @@ import React, {useEffect, useState} from "react";
 
 import {CodeWrapper} from "../../components/basic/code/CodeWrapper";
 
+import './Content.css'
+
 export function ContentWrapper() {
     const [getContent, setContent] = useState(`# loading...`)
 
@@ -131,14 +133,14 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
     }, []);
 
     return (
-        <>
+        <div className={"contentWrapper"}>
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 children={getContent}
                 components={{
                     code({className,  children}) {
-                        if (!className || !children) {
-                            return <></>
+                        if (!className || typeof children !== 'string') {
+                            return <code >{children}</code>
                         }
                         return (
                             <CodeWrapper
@@ -150,6 +152,6 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
                 }}
             />
 
-        </>
+        </div>
     )
 }

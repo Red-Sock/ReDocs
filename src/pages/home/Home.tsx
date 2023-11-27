@@ -6,15 +6,15 @@ import {ContentWrapper} from "../../sections/content/Content";
 export function Home() {
     return (
         <div className="Home">
-            <div className="sidebarWrap">
+            <div className="sidebarHome">
                 <SidebarWrapper/>
             </div>
 
-            <div className="contentWrap">
+            <div className="contentHome">
                 <ContentWrapper/>
             </div>
 
-            <div className="sideMenuWrap">
+            <div className="sideMenuHome">
                 Боковое меню со структурой страницы
             </div>
         </div>

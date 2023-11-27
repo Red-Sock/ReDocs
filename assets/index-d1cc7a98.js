@@ -196,7 +196,7 @@ Much more info is available in the
 ***
 
 A component by [Espen Hovlandsdal](https://espen.codes/)
-`)},[]),j.jsx(j.Fragment,{children:j.jsx(F0,{remarkPlugins:[QU],children:e,components:{code({className:n,children:r}){return!n||!r?j.jsx(j.Fragment,{}):j.jsx(b2,{content:r.toString(),language:n.replace("language-","")})}}})})}function C2(){return j.jsxs("div",{className:"Home",children:[j.jsx("div",{className:"sidebarWrap",children:j.jsx(vL,{})}),j.jsx("div",{className:"contentWrap",children:j.jsx(R2,{})}),j.jsx("div",{className:"sideMenuWrap",children:"Боковое меню со структурой страницы"})]})}/**
+`)},[]),j.jsx("div",{className:"contentWrapper",children:j.jsx(F0,{remarkPlugins:[QU],children:e,components:{code({className:n,children:r}){return!n||typeof r!="string"?j.jsx("code",{children:r}):j.jsx(b2,{content:r.toString(),language:n.replace("language-","")})}}})})}function C2(){return j.jsxs("div",{className:"Home",children:[j.jsx("div",{className:"sidebarHome",children:j.jsx(vL,{})}),j.jsx("div",{className:"contentHome",children:j.jsx(R2,{})}),j.jsx("div",{className:"sideMenuHome",children:"Боковое меню со структурой страницы"})]})}/**
  * @remix-run/router v1.10.0
  *
  * Copyright (c) Remix Software Inc.

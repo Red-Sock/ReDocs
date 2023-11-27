@@ -11,10 +11,8 @@ export function CodeWrapper(props: {
     }).value;
 
     return (
-        <div>
-      <pre>
-        <code dangerouslySetInnerHTML={{__html: highlightCode}}/>
-      </pre>
-        </div>
+        <>
+            <div className={"codeWrapper"} dangerouslySetInnerHTML={{__html: highlightCode}}/>
+        </>
     );
 }

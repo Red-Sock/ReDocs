@@ -1,4 +1,4 @@
-code {
+.codeWrapper {
   border: 1px solid #87f8ff;
   border-radius: 20px;
   padding: 16px;
@@ -6,6 +6,6 @@ code {
   display: block;
 }
 
-code span {
+.codeWrapper span {
   font-size: inherit;
 }

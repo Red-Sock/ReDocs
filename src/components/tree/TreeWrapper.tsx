@@ -15,6 +15,9 @@ export function TreeWrapper(
         openNode(link: NodeItem): void;
     }
 ) {
+
+    let id = 0;
+    const next = () => {return id++}
     return (
         <div className="Sidebar">
             <div className="Content">
@@ -27,8 +30,10 @@ export function TreeWrapper(
                         props.nodes.map(
                             (elem: any) => {
                                 return <TreeNode
+                                    key={next()}
                                     node={elem}
                                     openNode={props.openNode}
+                                    next={next}
                                 />
                             }
                         )

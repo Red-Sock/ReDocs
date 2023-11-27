@@ -1,12 +1,9 @@
-import Markdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import React, {useEffect, useState} from "react";
 
-import './../../components/basic/code/CodeWrapper.css';
-import './../../components/basic/quote/QuoteWrapper.css';
-import './../../components/basic/text/TextWrapper.css';
-import './../../components/list/ListWrapper.css';
-import './../../components/table/TableWrapper.css';
+import {CodeWrapper} from "../../components/basic/code/CodeWrapper";
 
 export function ContentWrapper() {
     const [getContent, setContent] = useState(`# loading...`)
@@ -134,8 +131,25 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
     }, []);
 
     return (
-        <Markdown>
-            {getContent}
-        </Markdown>
+        <>
+            <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                children={getContent}
+                components={{
+                    code({className,  children}) {
+                        if (!className || !children) {
+                            return <></>
+                        }
+                        return (
+                            <CodeWrapper
+                                content={children.toString()}
+                                language={className.replace("language-", "")}
+                            />
+                        );
+                    },
+                }}
+            />
+
+        </>
     )
 }

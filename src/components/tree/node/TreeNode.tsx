@@ -6,6 +6,7 @@ import {NodeItem} from "../../../entities/node/NodeItem";
 export function TreeNode(props: {
     node: NodeItem,
     openNode: (node: NodeItem) => void,
+    next: ()=> number,
 }) {
     return (
         <>
@@ -26,8 +27,10 @@ export function TreeNode(props: {
                     props.node.inner.length > 0 ?
                         props.node.inner.map((c: any) => {
                             return <TreeNode
+                                key={props.next()}
                                 node={c}
                                 openNode={props.openNode}
+                                next={props.next}
                             />
                         }) : null
                 }

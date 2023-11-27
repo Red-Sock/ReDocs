@@ -1,0 +1,17 @@
+.ContentWrapper {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-flow: column;
+}
+
+ul {
+    height: auto;
+    width: auto;
+}
+
+li  {
+    height: auto;
+    width: auto;
+}

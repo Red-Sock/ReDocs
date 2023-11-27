@@ -1,11 +1,11 @@
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import React, {useEffect, useState} from "react";
 
 import {CodeWrapper} from "../../components/basic/code/CodeWrapper";
 
-import './Content.css'
+import styles from './Content.module.css'
 
 export function ContentWrapper() {
     const [getContent, setContent] = useState(`# loading...`)
@@ -134,17 +134,15 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
     }, []);
 
     return (
-        <div className={"contentWrapper"}>
-            <ReactMarkdown
+        <div className={styles.ContentWrapper}>
+            <Markdown
                 remarkPlugins={[remarkGfm]}
                 children={getContent}
                 components={{
-                    code({className,  children}) {
-                        if (
-                            !className ||
+                    code({className, children}) {
+                        if (!className ||
                             typeof children !== 'string' ||
-                            !className.startsWith("language-")
-                        ) {
+                            !className.startsWith("language-")) {
                             return <code>{children}</code>
                         }
                         return (

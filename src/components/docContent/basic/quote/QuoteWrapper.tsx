@@ -1,10 +1,10 @@
 import "./QuoteWrapper.css";
 
-export function QuoteWrapper(props: string) {
+export default function QuoteWrapper(content: string) {
   return (
     <div>
       <blockquote className="wrapQuote">
-        <p className="wrapTextQuote">{props}</p>
+        <p className="wrapTextQuote">{content}</p>
       </blockquote>
     </div>
   );

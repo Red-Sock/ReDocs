@@ -1,4 +1,3 @@
-
 import {TreeItem} from "@mui/x-tree-view";
 
 import {NodeItem} from "../../../entities/node/NodeItem";

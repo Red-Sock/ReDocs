@@ -22,3 +22,8 @@ root, body {
     --quote-background: rgb(91, 91, 91);
     --primary-fg-color: #232328;
 }
+
+/*TODO: DO FOR different screen sizes*/
+* {
+    font-size: 16px;
+}

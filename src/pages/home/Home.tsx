@@ -1,7 +1,7 @@
 import "./Home.css";
 
 import SidebarWrapper from "./../../sections/sidebar/SidebarWrapper";
-import {ContentWrapper} from "../../sections/content/Content";
+import ContentWrapper from "../../sections/content/Content";
 
 export function Home() {
     return (

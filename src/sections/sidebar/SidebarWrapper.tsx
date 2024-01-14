@@ -1,6 +1,8 @@
-import { TreeWrapper } from "../../components/tree/TreeWrapper";
-import { NodeItem } from "../../entities/node/NodeItem";
 import "./SidebarWrapper.css";
+
+import { NodeItem } from "../../entities/node/NodeItem";
+
+import { TreeWrapper } from "../../components/tree/TreeWrapper";
 
 export default function SidebarWrapper() {
     const openNode = function () {

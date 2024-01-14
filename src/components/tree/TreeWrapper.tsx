@@ -3,11 +3,10 @@ import './TreeWrapper.css'
 import {TreeView} from "@mui/x-tree-view";
 
 import {NodeItem} from "../../entities/node/NodeItem";
+import {NodeCollapsedIcon} from "../../assets/treeIcon/NodeCollapsedIcon";
 
-import {IconCollapsed} from "../../assets/treeIcon/IconCollapsed";
-import {IconExpaned} from "../../assets/treeIcon/IconExpaned";
+import {NodeExpanedIcon} from "../../assets/treeIcon/NodeExpanedIcon";
 import {TreeNode} from "./node/TreeNode";
-
 
 export function TreeWrapper(
     props: {
@@ -17,14 +16,15 @@ export function TreeWrapper(
 ) {
 
     let id = 0;
-    const next = () => {return id++}
+    const next = () => { return id++ }
+
     return (
         <div className="Sidebar">
             <div className="Content">
                 <TreeView
                     aria-label="Documentation" // TODO заменить на переменную, которую будем брать откуда-то
-                    defaultCollapseIcon={<IconCollapsed/>}
-                    defaultExpandIcon={<IconExpaned/>}
+                    defaultCollapseIcon={<NodeCollapsedIcon/>}
+                    defaultExpandIcon={<NodeExpanedIcon/>}
                 >
                     {
                         props.nodes.map(

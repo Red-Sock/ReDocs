@@ -1,18 +1,83 @@
+import styles from './Content.module.css'
+
+import CodeWrapper from "../../components/docContent/basic/code/CodeWrapper";
+import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
+import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
+
+import React, {useEffect, useState} from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import React, {useEffect, useState} from "react";
 
-import {CodeWrapper} from "../../components/basic/code/CodeWrapper";
-
-import styles from './Content.module.css'
-
-export function ContentWrapper() {
+export default function ContentWrapper() {
     const [getContent, setContent] = useState(`# loading...`)
 
     useEffect(() => {
         setContent(`
-# A demo of \`react-markdown\`
+
+# Basic Markdown Example
+
+This is a simple Markdown document showcasing basic syntax.
+
+## Headings
+
+You can create headings using hash symbols (\`#\`). There are six levels of headings:
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+## Emphasis
+
+You can make text *italic* using asterisks or underscores:
+*italic text* or _italic text_
+
+You can make text **bold** using double asterisks or underscores:
+**bold text** or __bold text__
+
+## Lists
+
+### Unordered List
+
+- Item 1
+- Item 2
+  - Subitem 1
+  - Subitem 2
+
+### Ordered List
+
+1. First item
+2. Second item
+   1. Subitem A
+   2. Subitem B
+
+## Links
+
+You can create [hyperlinks](https://www.example.com) using square brackets and parentheses.
+
+## Images
+
+You can embed images similarly to links, with an exclamation mark in front:
+
+![Alt text](https://via.placeholder.com/150)
+
+## Blockquotes
+
+> This is a blockquote. You can include a citation or additional information here.
+
+## Code
+
+Inline code uses backticks (\`) like \`code\`. For code blocks, use three backticks:
+
+\`\`\`python
+def example_function():
+    print("Hello, Markdown!")
+
+
+# An Advanced demo of \`react-markdown\`
 
 \`react-markdown\` is a markdown component for React.
 
@@ -55,7 +120,7 @@ ReactDOM.render(
 )
 \`\`\`
 
-Pretty neat, eh?
+> Pretty neat, eh?
 
 ## GitHub flavored markdown (GFM)
 
@@ -152,6 +217,25 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
                             />
                         );
                     },
+
+                    a({href, children}) {
+                        if (!href || !children) {
+                            return (<></>)
+                        }
+
+                        return (
+                            <LinkWrapper
+                                href={href}
+                                name={children.toString()}
+                            />
+                        )
+                    },
+                    blockquote(props) {
+                        console.log(props)
+                        return (
+                            <></>
+                        )
+                    }
                 }}
             />
 

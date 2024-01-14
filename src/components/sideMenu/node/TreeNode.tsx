@@ -1,3 +1,5 @@
+import cls from './TreeNode.module.css'
+
 import {TreeItem} from "@mui/x-tree-view";
 
 import {NodeItem} from "../../../entities/node/NodeItem";
@@ -7,19 +9,24 @@ export function TreeNode(props: {
     openNode: (node: NodeItem) => void,
     next: ()=> number,
 }) {
+
     return (
-        <>
+        <div className={cls.treeNode}>
             <TreeItem
                 // TODO определение идентификатора ноды
                 nodeId={props.node.name}
                 key={props.node.name}
                 label={props.node.name}
-                sx={{boxSizing: "content-box", display: "inline-block"}}
+                sx={{
+                    boxSizing: "content-box",
+                    display: "inline-block",
+                }}
                 onClick={() => {
                     if (props.node.link.length != 0) {
                         props.openNode(props.node)
                     }
                 }}
+
             >
                 {
                     props.node.inner &&
@@ -34,6 +41,6 @@ export function TreeNode(props: {
                         }) : null
                 }
             </TreeItem>
-        </>
+        </div>
     )
 }

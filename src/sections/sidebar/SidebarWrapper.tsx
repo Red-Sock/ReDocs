@@ -2,7 +2,7 @@ import "./SidebarWrapper.css";
 
 import { NodeItem } from "../../entities/node/NodeItem";
 
-import { TreeWrapper } from "../../components/tree/TreeWrapper";
+import { TreeWrapper } from "../../components/sideMenu/TreeWrapper";
 
 export default function SidebarWrapper() {
     const openNode = function () {

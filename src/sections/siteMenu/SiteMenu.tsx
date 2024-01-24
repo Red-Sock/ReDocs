@@ -1,10 +1,10 @@
-import "./SidebarWrapper.css";
-
 import { NodeItem } from "../../entities/node/NodeItem";
 
 import { TreeWrapper } from "../../components/sideMenu/TreeWrapper";
+import type {} from '@mui/x-tree-view/themeAugmentation';
+import {ThemeProvider, createTheme} from "@mui/material";
 
-export default function SidebarWrapper() {
+export default function SiteMenu() {
     const openNode = function () {
         //TODO придумать как открывать страницы
     }
@@ -29,9 +29,24 @@ export default function SidebarWrapper() {
         ]
     }();
 
+    const theme = createTheme({
+        components: {
+            MuiTreeItem: {
+                styleOverrides: {
+                    label: {
+                        fontSize: '1.5em',
+                    },
+                    iconContainer: {
+                        width: '2em'
+                    }
+                },
+            },
+        },
+    });
+
     return (
-        <div className="wrapperSideBar">
+        <ThemeProvider theme={theme}>
             <TreeWrapper nodes={nodes} openNode={openNode}/>
-        </div>
+        </ThemeProvider>
     );
 }

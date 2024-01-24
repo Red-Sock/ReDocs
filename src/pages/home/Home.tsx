@@ -1,13 +1,13 @@
 import "./Home.css";
 
-import SidebarWrapper from "./../../sections/sidebar/SidebarWrapper";
+import SiteMenu from "../../sections/siteMenu/SiteMenu";
 import ContentWrapper from "../../sections/content/Content";
 
 export function Home() {
     return (
         <div className="Home">
             <div className="sidebarHome">
-                <SidebarWrapper/>
+                <SiteMenu/>
             </div>
 
             <div className="contentHome">

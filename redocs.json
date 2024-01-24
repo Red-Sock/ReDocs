@@ -1,0 +1,24 @@
+{
+  "Tittle": "ReDocs example",
+  "link": "https://raw.githubusercontent.com/Red-Sock/ReDocs/main/",
+  "Sections": [
+    {
+      "name": "Introduction",
+      "link": "/README.md"
+    },
+    {
+      "name": "Usage",
+      "link": "/docs",
+      "inner": [
+        {
+          "name": "Static sites",
+          "link": "/static_site.md"
+        },
+        {
+          "name": "Dynamic sites",
+          "link": "/dynamic_site.md"
+        }
+      ]
+    }
+  ]
+}

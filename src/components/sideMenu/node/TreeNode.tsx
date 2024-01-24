@@ -1,35 +1,31 @@
 import {TreeItem} from "@mui/x-tree-view";
 
 import {NodeItem} from "../../../entities/node/NodeItem";
+import {openPage} from "../../../features/pageOpener/pageOpener";
 
-export function TreeNode(props: {
-    node: NodeItem,
-    openNode: (node: NodeItem) => void,
-    next: () => number,
-}) {
+interface TreeNodeProps {
+    node: NodeItem;
+    parentId: string
+}
 
+export function TreeNode({node, parentId}: TreeNodeProps) {
+    const id = parentId+'/'+node.name
 
     return (
         <TreeItem
-            // TODO определение идентификатора ноды
-            nodeId={props.node.name}
-            key={props.node.name}
-            label={props.node.name}
+            nodeId={id}
+            key={node.name}
+            label={node.name}
 
-            onClick={() => {
-                if (props.node.link.length != 0) {
-                    props.openNode(props.node)
-                }
-            }}
+            onClick={() => {openPage(node.link)}}
         >
             {
-                props.node.inner && props.node.inner.length > 0 ?
-                    props.node.inner.map((c: any) => {
+                node.inner && node.inner.length > 0 ?
+                    node.inner.map((c: NodeItem, idx) => {
                         return <TreeNode
-                            key={props.next()}
+                            key={id+'/'+c.name+'_'+idx}
+                            parentId={id}
                             node={c}
-                            openNode={props.openNode}
-                            next={props.next}
                         />
                     }) : null
             }

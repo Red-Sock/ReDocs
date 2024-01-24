@@ -5,24 +5,30 @@ import type {} from '@mui/x-tree-view/themeAugmentation';
 import {ThemeProvider, createTheme} from "@mui/material";
 
 export default function SiteMenu() {
-    const openNode = function () {
-        //TODO придумать как открывать страницы
-    }
-
     let nodes = function (): NodeItem[] {
         // TODO придумать откуда брать структуру документации
         return [
             {
-                name: "node 1",
-                link: "https://link.to.page.ru/",
+                name: "ReDocs example",
+                link: "https://raw.githubusercontent.com/Red-Sock/ReDocs/main/",
                 inner: [
                     {
-                        name: "node 1-1",
-                        link: "https://link.to.page.ru/",
+                        name: "Introduction",
+                        link: "/README.md"
                     },
                     {
-                        name: "node 1-2",
-                        link: "https://link.to.page.ru/",
+                        name: "Usage",
+                        link: "/docs",
+                        inner: [
+                            {
+                                name: "Static sites",
+                                link: "/static_site.md"
+                            },
+                            {
+                                name: "Dynamic sites",
+                                link: "/dynamic_site.md"
+                            }
+                        ]
                     }
                 ]
             }
@@ -34,7 +40,7 @@ export default function SiteMenu() {
             MuiTreeItem: {
                 styleOverrides: {
                     label: {
-                        fontSize: '1.5em',
+                        fontSize: '1.25em',
                     },
                     iconContainer: {
                         width: '2em'
@@ -46,7 +52,9 @@ export default function SiteMenu() {
 
     return (
         <ThemeProvider theme={theme}>
-            <TreeWrapper nodes={nodes} openNode={openNode}/>
+            <TreeWrapper
+                treeName={"leftLevelTree"}
+                nodes={nodes}/>
         </ThemeProvider>
     );
 }

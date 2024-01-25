@@ -2,13 +2,13 @@ import styles from './Content.module.css'
 
 import CodeWrapper from "../../components/docContent/basic/code/CodeWrapper";
 import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
-import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
 
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {useHookstate} from "@hookstate/core";
-import {pageContent} from "../../features/pageOpener/content";
+import {pageContent} from "../../state/content";
+
 
 
 export default function ContentWrapper() {

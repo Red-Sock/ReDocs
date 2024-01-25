@@ -13,17 +13,23 @@
     flex: 2;
 
     border: red solid;
+    block-size: fit-content;
+    height: 100%;
 }
 
 .contentHome {
-    flex: 5;
+    flex: 8;
 
     border: green solid;
     overflow:auto;
+    padding: 1em;
 }
 
 .sideMenuHome {
-    flex: 2;
+    flex: 1;
 
+    block-size: fit-content;
     border: yellow solid;
+    margin: 2.5% 2.5% 0 2.5%;
+    padding: 1em;
 }

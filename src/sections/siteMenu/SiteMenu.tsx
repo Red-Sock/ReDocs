@@ -1,39 +1,17 @@
-import { NodeItem } from "../../entities/node/NodeItem";
-
-import { TreeWrapper } from "../../components/sideMenu/TreeWrapper";
+import cls from './SiteMenu.module.css'
 import type {} from '@mui/x-tree-view/themeAugmentation';
+
+import {TreeWrapper} from "../../components/sideMenu/TreeWrapper";
+
 import {ThemeProvider, createTheme} from "@mui/material";
 
+import {useHookstate} from "@hookstate/core";
+import {configState} from "../../state/config";
+import {NodeItem} from "../../entities/node/NodeItem";
+
 export default function SiteMenu() {
-    let nodes = function (): NodeItem[] {
-        // TODO придумать откуда брать структуру документации
-        return [
-            {
-                name: "ReDocs example",
-                link: "https://raw.githubusercontent.com/Red-Sock/ReDocs/main/",
-                inner: [
-                    {
-                        name: "Introduction",
-                        link: "/README.md"
-                    },
-                    {
-                        name: "Usage",
-                        link: "/docs",
-                        inner: [
-                            {
-                                name: "Static sites",
-                                link: "/static_site.md"
-                            },
-                            {
-                                name: "Dynamic sites",
-                                link: "/dynamic_site.md"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }();
+    const config = useHookstate(configState);
+    const nodes = useHookstate<NodeItem[] | undefined, {}>(config.Sections)
 
     const theme = createTheme({
         components: {
@@ -51,10 +29,16 @@ export default function SiteMenu() {
     });
 
     return (
-        <ThemeProvider theme={theme}>
-            <TreeWrapper
-                treeName={"leftLevelTree"}
-                nodes={nodes}/>
-        </ThemeProvider>
+        <div className={cls.Container}>
+            <ThemeProvider theme={theme}>
+                <div className={cls.Header}>{config.get().Tittle}</div>
+
+                <div className={cls.Tree}>
+                <TreeWrapper
+                    treeName={config.get().Tittle}
+                    nodesState={nodes}/>
+                </div>
+            </ThemeProvider>
+        </div>
     );
 }

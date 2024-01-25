@@ -3,8 +3,6 @@ import * as React from "react";
 import {createBrowserRouter} from "react-router-dom";
 import {Home} from "../pages/home/Home";
 
-import {pageContent} from "../features/pageOpener/content";
-
 export const router = createBrowserRouter([
     {
         path: "/*",

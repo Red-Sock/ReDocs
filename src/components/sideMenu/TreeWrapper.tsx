@@ -6,30 +6,25 @@ import {TreeNode} from "./node/TreeNode";
 import {NodeItem} from "../../entities/node/NodeItem";
 
 import {TreeView} from "@mui/x-tree-view";
+import {State, useHookstate} from "@hookstate/core";
 
 interface TreeWrapperProps {
     treeName: string;
-    nodes: NodeItem[];
+    nodesState: State<NodeItem[] | undefined>;
 }
 
-export function TreeWrapper({treeName, nodes}: TreeWrapperProps) {
+export function TreeWrapper({treeName, nodesState}: TreeWrapperProps) {
+
     return (
         <TreeView
             aria-label={treeName}
             defaultCollapseIcon={<NodeCollapsedIcon/>}
             defaultExpandIcon={<NodeExpanedIcon/>}
         >
-            {
-                nodes.map(
-                    (e: NodeItem, i: number) => {
-                        return <TreeNode
-                            key={e.name+'_'+i}
-                            parentId={treeName}
-                            node={e}
-                        />
-                    }
-                )
-            }
+            <TreeNode
+                parentId={treeName}
+                nodesState={nodesState}
+            />
         </TreeView>
     );
 }

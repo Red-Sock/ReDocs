@@ -14,7 +14,6 @@ interface TreeWrapperProps {
 }
 
 export function TreeWrapper({treeName, nodesState}: TreeWrapperProps) {
-
     return (
         <TreeView
             aria-label={treeName}
@@ -22,7 +21,7 @@ export function TreeWrapper({treeName, nodesState}: TreeWrapperProps) {
             defaultExpandIcon={<NodeExpanedIcon/>}
         >
             <TreeNode
-                parentId={treeName}
+                parentId={""}
                 nodesState={nodesState}
             />
         </TreeView>

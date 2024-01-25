@@ -1,6 +1,6 @@
 import { hookstate } from '@hookstate/core';
 
-export const pageContent = hookstate(`
+export const currentContent = hookstate(`
 
 # Basic Markdown Example
 

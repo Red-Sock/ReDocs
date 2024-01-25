@@ -2,7 +2,6 @@ import {configState, Config} from "../../state/config";
 
 import {fetchViaApi} from "../../entities/api";
 
-
 export function fetchConfig() {
     const configPath = import.meta.env.VITE_REDOCS_CONFIG
     if (!configPath) {
@@ -10,7 +9,6 @@ export function fetchConfig() {
     }
 
     fetchViaApi<Config>(configPath).then(r => {
-        console.log(r)
         configState.set(r)
     })
 }

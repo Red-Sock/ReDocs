@@ -16,20 +16,22 @@ export function TreeNode({parentId, nodesState}: TreeNodeProps) {
                 nodesState.ornull &&
                 nodesState.ornull.map((nodeState: State<NodeItem>) => {
                     const node = nodeState.get()
-                    parentId += '/' + node.name
+                    const newParentId = parentId + node.link
                     return (
                         <TreeItem
-                            nodeId={parentId}
+                            nodeId={newParentId}
                             key={node.name}
                             label={node.name}
 
                             onClick={() => {
-                                openPage(node.link)
+                                if (node.link.includes(".")) {
+                                    openPage(newParentId)
+                                }
                             }}
                         >
                             {
                                 node.inner && node.inner.length != 0 ?
-                                <TreeNode parentId={parentId} nodesState={nodeState.inner}/> : null
+                                <TreeNode parentId={newParentId} nodesState={nodeState.inner}/> : null
                             }
                         </TreeItem>
                     )

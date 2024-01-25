@@ -1,5 +1,5 @@
 export function fetchViaApi<T>(url: string): Promise<T> {
-    return fetch(url)
+    return fetch(url, {cache: "no-store"})
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.statusText)

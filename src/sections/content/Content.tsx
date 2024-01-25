@@ -7,12 +7,10 @@ import React from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {useHookstate} from "@hookstate/core";
-import {pageContent} from "../../state/content";
-
-
+import {currentContent} from "../../state/currentContent";
 
 export default function ContentWrapper() {
-   const content = useHookstate(pageContent)
+   const content = useHookstate(currentContent)
 
     return (
         <div className={styles.ContentWrapper}>

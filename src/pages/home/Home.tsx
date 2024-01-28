@@ -7,9 +7,7 @@ import {fetchConfig} from "../../features/config/config";
 import {useEffect} from "react";
 
 export function Home() {
-    useEffect(() => {
-        fetchConfig()
-    }, []);
+    useEffect(fetchConfig);
 
     return (
         <div className="Home">

@@ -11,12 +11,11 @@ html, root, body {
 
 root, body {
     margin: 0;
-
     background: var(--main-bg-color);
 }
 
 :root {
-    --main-bg-color: rgb(255, 255, 255);
+    --main-bg-color: #c8d7ea;
     --secondarry-bg-color: rgb(50, 73, 166);
     --thirdly-bg-color: rgb(141, 218, 236);
     --quote-background: rgb(91, 91, 91);

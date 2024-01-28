@@ -2,6 +2,7 @@ import * as React from "react";
 
 import {createBrowserRouter} from "react-router-dom";
 import {Home} from "../pages/home/Home";
+import {ErrorPage} from "../pages/error/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
             // pageContent.set(data)
             return null
         },
+        errorElement: (<ErrorPage/>)
     },
 ]);
 

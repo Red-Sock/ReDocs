@@ -62,7 +62,7 @@ Inline code uses backticks (\`) like \`code\`. For code blocks, use three backti
 \`\`\`python
 def example_function():
     print("Hello, Markdown!")
-
+\`\`\`
 
 # An Advanced demo of \`react-markdown\`
 

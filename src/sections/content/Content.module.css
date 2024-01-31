@@ -17,5 +17,24 @@ li  {
 }
 
 h1 {
-/*TODO styling*/
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.125em;
+    font-weight: bold;
+}
+
+h4, h5, h6 {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: #232328;
+    text-align: center;
 }

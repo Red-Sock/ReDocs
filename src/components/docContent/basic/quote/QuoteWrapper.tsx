@@ -1,12 +1,15 @@
-import "./QuoteWrapper.css";
+import cls from "./QuoteWrapper.module.css";
 
-export default function QuoteWrapper(content: string) {
+interface QuoteWrapperProps {
+    content: string
+}
+
+export default function QuoteWrapper({content}: QuoteWrapperProps) {
   return (
-    <div>
-      <blockquote className="wrapQuote">
-        <p className="wrapTextQuote">{content}</p>
+      <blockquote className={cls.container}>
+          <div className={cls.quoteIcon}>“</div>
+          <div className={cls.text}>{content}</div>
       </blockquote>
-    </div>
   );
 }
 

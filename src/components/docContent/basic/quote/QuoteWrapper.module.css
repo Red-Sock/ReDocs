@@ -1,0 +1,22 @@
+.container {
+  border: 1px solid var(--secondarry-bg-color);
+
+  margin: 0 0 1.75em 0;
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.quoteIcon {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0.125em 0 0 0.25em;
+}
+
+.text {
+  margin: 0.5em;
+  text-align: justify;
+}
+
+

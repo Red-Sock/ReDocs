@@ -3,11 +3,12 @@ import styles from './Content.module.css'
 import CodeWrapper from "../../components/docContent/basic/code/CodeWrapper";
 import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
 
-import React from "react";
+import React, {ReactNode} from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {useHookstate} from "@hookstate/core";
 import {currentContent} from "../../state/currentContent";
+import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
 
 export default function ContentWrapper() {
     const content = useHookstate(currentContent)
@@ -31,7 +32,6 @@ export default function ContentWrapper() {
                             />
                         );
                     },
-
                     a({href, children}) {
                         if (!href || !children) {
                             return (<></>)
@@ -75,9 +75,20 @@ export default function ContentWrapper() {
                             <h6>{children}</h6>
                         )
                     },
+                    blockquote({children}) {
+                        if (!children) {
+                            return <></>
+                        }
+
+                        if (Array.isArray(children)) {
+                            console.log(children[1])
+                            return (<QuoteWrapper content={children[1].props.children}/>)
+                        }
+
+                        return <></>
+                    },
                 }}
             />
-
         </div>
     )
 }

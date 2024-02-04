@@ -9,7 +9,7 @@ export interface Config {
 }
 
 export const configState = hookstate({
-    Tittle:"",
-    link:"",
+    Tittle: "",
+    link: "",
     Sections: []
 } as Config)

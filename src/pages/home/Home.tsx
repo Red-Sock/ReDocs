@@ -5,6 +5,7 @@ import ContentWrapper from "../../sections/content/Content";
 
 import {fetchConfig} from "../../features/config/config";
 import {useEffect} from "react";
+import {PageMenu} from "../../sections/pageMenu/pageMenu";
 
 export function Home() {
     useEffect(fetchConfig);
@@ -20,7 +21,7 @@ export function Home() {
             </div>
 
             <div className="sideMenuHome">
-                Боковое меню со структурой страницы
+                <PageMenu/>
             </div>
         </div>
     );

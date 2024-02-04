@@ -5,7 +5,7 @@ import CodeWrapper from "../../components/docContent/basic/code/CodeWrapper";
 import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
 import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from 'rehype-raw'
@@ -57,6 +57,10 @@ export default function ContentWrapper() {
                     },
 
                     h1({children}) {
+                        if (!children || typeof children !== "string") {
+                            return <></>
+                        }
+
                         return (
                             <h1>{children}</h1>
                         )

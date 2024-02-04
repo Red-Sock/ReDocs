@@ -1,6 +1,6 @@
 import { hookstate } from '@hookstate/core';
 
-export const currentContent = hookstate(`
+const basicContent = `
 
 # Basic Markdown Example
 
@@ -182,5 +182,7 @@ Much more info is available in the
 ***
 
 A component by [Espen Hovlandsdal](https://espen.codes/)
-`);
+`
+
+export const currentContent = hookstate(basicContent);
 

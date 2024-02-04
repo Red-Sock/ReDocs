@@ -6,10 +6,10 @@ interface QuoteWrapperProps {
 
 export default function QuoteWrapper({content}: QuoteWrapperProps) {
   return (
-      <blockquote className={cls.container}>
+      <div className={cls.container}>
           <div className={cls.quoteIcon}>“</div>
           <div className={cls.text}>{content}</div>
-      </blockquote>
+      </div>
   );
 }
 

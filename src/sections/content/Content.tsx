@@ -1,14 +1,19 @@
 import styles from './Content.module.css'
+import './global-re-render.css'
 
 import CodeWrapper from "../../components/docContent/basic/code/CodeWrapper";
+import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
 import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
 
-import React, {ReactNode} from "react";
+import React from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
+
 import {useHookstate} from "@hookstate/core";
 import {currentContent} from "../../state/currentContent";
-import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
+
 
 export default function ContentWrapper() {
     const content = useHookstate(currentContent)
@@ -16,7 +21,9 @@ export default function ContentWrapper() {
     return (
         <div className={styles.ContentWrapper}>
             <Markdown
+                className="markdown-body"
                 remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw,rehypeSlug]}
                 children={content.get()}
                 components={{
                     code({className, children}) {
@@ -34,13 +41,17 @@ export default function ContentWrapper() {
                     },
                     a({href, children}) {
                         if (!href || !children) {
-                            return (<></>)
+                            return (<a>{children}</a>)
+                        }
+
+                        if (typeof  children !== "string") {
+                            return (<a href={href}>{children}</a>)
                         }
 
                         return (
                             <LinkWrapper
                                 href={href}
-                                name={children.toString()}
+                                name={children}
                             />
                         )
                     },
@@ -75,13 +86,13 @@ export default function ContentWrapper() {
                             <h6>{children}</h6>
                         )
                     },
+
                     blockquote({children}) {
                         if (!children) {
                             return <></>
                         }
 
                         if (Array.isArray(children)) {
-                            console.log(children[1])
                             return (<QuoteWrapper content={children[1].props.children}/>)
                         }
 

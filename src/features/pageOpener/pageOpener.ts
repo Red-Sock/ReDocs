@@ -12,7 +12,7 @@ export async function openPage(id: string) {
     if (id == "") {
         return
     }
-    console.log(srcLink.get()+id)
+
     let content: string = contentCache.get(id) || ""
 
     if (content === "") {
@@ -107,7 +107,6 @@ function pushToPageContent(ps: PageStruct, hLevel: number, header: string, link:
 
         if(!ps.lastInsertedNode.parent) {
             ps.Root.push(newNode)
-            console.log(ps.Root)
             return ps
         }
 

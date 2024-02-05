@@ -24,7 +24,7 @@ export default function ContentWrapper() {
                 className="markdown-body"
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw,rehypeSlug]}
-                children={content.get()}
+                children={content.value}
                 components={{
                     code({className, children}) {
                         if (!className ||

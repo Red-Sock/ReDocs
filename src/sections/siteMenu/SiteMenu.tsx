@@ -31,12 +31,21 @@ export default function SiteMenu() {
     return (
         <div className={cls.Container}>
             <ThemeProvider theme={theme}>
-                <div className={cls.Header}>{config.get().Tittle}</div>
+                <div className={cls.Header}>
+                    <img
+                        className={cls.HeaderImage}
+                        src={"src/assets/img/logo.svg"}
+                        alt={"logo"}
+                    />
+                    <div className={cls.HeaderText}>
+                        {config.get().Tittle}
+                    </div>
+                </div>
 
                 <div className={cls.Tree}>
-                <TreeWrapper
-                    treeName={config.get().Tittle}
-                    nodesState={nodes}/>
+                    <TreeWrapper
+                        treeName={config.get().Tittle}
+                        nodesState={nodes}/>
                 </div>
             </ThemeProvider>
         </div>

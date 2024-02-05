@@ -12,10 +12,11 @@ html, root, body {
 root, body {
     margin: 0;
     background: var(--main-bg-color);
+    overflow-x: hidden;
 }
 
 :root {
-    --main-bg-color: #c8d7ea;
+    --main-bg-color: #ffffff;
     --secondarry-bg-color: rgb(10, 183, 238);
     --thirdly-bg-color: rgb(0, 207, 255);
     --quote-background: rgb(91, 91, 91);

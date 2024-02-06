@@ -7,12 +7,7 @@ export interface PageStruct {
     Root: NodeItem[]
 }
 
-export const pageStructState = hookstate(
-    {
-        lastInsertedLevel: -1,
-        lastInsertedNode: {name: "Loading", link: ""},
-        Root: []
-    } as PageStruct)
+export const pageStructState = hookstate({} as PageStruct)
 
 
 

@@ -11,73 +11,29 @@
 
 .sidebarHome {
     flex: 2;
-
-    border: red solid;
     block-size: fit-content;
     height: 100%;
+    border-right: var(--primary-fg-color) solid;
 }
 
 .contentHome {
     flex: 8;
 
-    border: green solid;
     overflow: auto;
-    padding: 1em 2em 1em 2em;
-}
-
-.pageMenu {
-    position: absolute;
-    right: 2vw;
-    top: 5vh;
-
-    block-size: fit-content;
-    max-width: 20vh;
-    padding: 1em;
-
-    transform: translateX(100%);
+    padding: 1em 25vw 1em 2em;
+    /* 25vw */
 
     display: flex;
     flex-direction: row;
 }
 
-.pageMenu-hidden {
-    animation: movePageMenu-hide 0.25s forwards;
-    animation-timing-function: linear;
-}
+.contentMenu {
+    position: absolute;
+    right: 2vw;
+    top: 5vh;
 
-.pageMenu-shown {
-    animation: movePageMenu-show 1s forwards;
-    animation-timing-function: cubic-bezier(.79, -0.08, .37, 1.47);
-}
+    block-size: fit-content;
+    width: 20vw;
+    padding: 1em;
 
-@keyframes movePageMenu-show {
-    0% {
-        transform: translateX(100%)
-    }
-    100% {
-        transform: translateX(0%)
-    }
-}
-
-@keyframes movePageMenu-hide {
-    0% {
-        transform: translateX(0%)
-    }
-    100% {
-        transform: translateX(100%)
-    }
-}
-
-
-.pageMenuButton {
-    min-width: 2vh;
-    min-height: 2vh;
-
-    max-width: 2vh;
-    max-height: 2vh;
-
-    border-radius: 5px;
-    padding: 0;
-    background: none;
-    border: #000000 solid;
 }

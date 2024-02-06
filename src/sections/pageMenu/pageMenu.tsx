@@ -10,6 +10,10 @@ import {NodeItem} from "../../entities/node/NodeItem";
 export function PageMenu() {
     const nodes =  useHookstate<NodeItem[] | undefined, {}>(pageStructState.Root)
 
+    if (!nodes || !nodes.value || nodes.value.length === 0) {
+        return (<div style={{display: "none"}}></div>)
+    }
+
     return (
         <div className={cls.pageMenu}>
             <TreeWrapper

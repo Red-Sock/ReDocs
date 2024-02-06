@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
         loader: ({params})=> {
             // TODO get data from params['*'] to data variable
             // TODO set data via:
-            // pageContent.set(data)
+            console.log(params["*"])
             return null
         },
         errorElement: (<ErrorPage/>)

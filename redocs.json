@@ -3,6 +3,10 @@
   "link": "https://raw.githubusercontent.com/Red-Sock/ReDocs/main",
   "Sections": [
     {
+      "name": "Home",
+      "link": ""
+    },
+    {
       "name": "Introduction",
       "link": "/README.md"
     },

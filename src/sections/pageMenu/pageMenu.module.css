@@ -1,7 +1,6 @@
 .pageMenu {
-    border: #000000 solid;
+    background: linear-gradient(var(--header-color), rgba(255, 237, 237, 0));
     border-radius: 5px;
-    min-width: 10vw;
+    min-width: 15vw;
     min-height: 5vh;
-    padding: 1em;
 }

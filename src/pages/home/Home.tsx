@@ -10,19 +10,6 @@ import {PageMenu} from "../../sections/pageMenu/pageMenu";
 export function Home() {
     useEffect(fetchConfig);
 
-    const [getPageMenuStyle, setPageMenuStyle] = useState("")
-    const [isPageContentOpen, setPageContentOpen] = useState(true)
-
-    function clickSideMenuButton() {
-        if (isPageContentOpen) {
-            setPageMenuStyle("pageMenu-shown")
-        } else {
-            setPageMenuStyle("pageMenu-hidden")
-        }
-
-        setPageContentOpen(!isPageContentOpen)
-    }
-
     return (
         <div className="Home">
             <div className="sidebarHome">
@@ -33,11 +20,8 @@ export function Home() {
                 <ContentWrapper/>
             </div>
 
-            <div
-                className={"pageMenu "+ getPageMenuStyle}
-            >
-                <button className={"pageMenuButton"} onClick={clickSideMenuButton}/>
-                <PageMenu />
+            <div className="contentMenu">
+                <PageMenu/>
             </div>
         </div>
     );

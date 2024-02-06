@@ -20,7 +20,7 @@
     flex: 8;
 
     overflow: auto;
-    padding: 1em 25vw 1em 2em;
+    padding: 1em 2em 1em 2em;
     /* 25vw */
 
     display: flex;
@@ -28,7 +28,7 @@
 }
 
 .contentMenu {
-    position: absolute;
+    position: sticky;
     right: 2vw;
     top: 5vh;
 

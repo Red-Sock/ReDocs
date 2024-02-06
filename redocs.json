@@ -4,7 +4,7 @@
   "Sections": [
     {
       "name": "Home",
-      "link": ""
+      "link": "/home.md"
     },
     {
       "name": "Introduction",

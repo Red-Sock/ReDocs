@@ -1,6 +1,12 @@
 .pageMenu {
     background: linear-gradient(var(--header-color), rgba(255, 237, 237, 0));
+
     border-radius: 5px;
     min-width: 15vw;
     min-height: 5vh;
+
+    max-height: 50vh;
+    overflow-y: scroll;
+
+    padding: 1em;
 }

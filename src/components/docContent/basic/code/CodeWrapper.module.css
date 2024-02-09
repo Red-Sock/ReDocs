@@ -10,12 +10,4 @@
 
   right: 1.5em;
   top: 1em;
-
-  width: 2em;
 }
-
-.copyWrapper:hover {
-  scale: 1.05;
-}
-
-

@@ -4,8 +4,7 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {useState} from "react";
+import {CopyButton} from "../../../copyButton/copyButton";
 
 interface CodeWrapperProps {
     content: string;
@@ -13,35 +12,9 @@ interface CodeWrapperProps {
 }
 
 export default function CodeWrapper({content, language}: CodeWrapperProps) {
-    const [isCopied, setIsCopied] = useState(false)
-
-    const copy = function () {
-        setIsCopied(true)
-        setTimeout(() => setIsCopied(false), 5000)
-    }
 
     return (
-        <div
-            className={styles.CodeWrapper}
-        >
-            <CopyToClipboard
-                text={content}
-                onCopy={copy}
-            >
-                {isCopied ?
-                    <input
-                        className={styles.copyWrapper}
-                        type="image"
-                        src={"src/assets/img/copied.svg"}
-                        alt={"copied"}/> :
-                    <input
-                        className={styles.copyWrapper}
-                        type="image"
-                        src={"src/assets/img/copy.svg"}
-                        alt={"copy"}/>
-                }
-            </CopyToClipboard>
-
+        <div className={styles.CodeWrapper}>
             <SyntaxHighlighter
                 PreTag="div"
                 style={dracula}
@@ -53,6 +26,9 @@ export default function CodeWrapper({content, language}: CodeWrapperProps) {
                 showLineNumbers={true}
             />
 
+            <div className={styles.copyWrapper}>
+                <CopyButton content={content}/>
+            </div>
         </div>
     );
 }

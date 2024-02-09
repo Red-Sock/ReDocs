@@ -24,6 +24,7 @@
 
 .errMessageBox {
     border: black dashed;
+    background-color: var(--quote-background);
     width: 35%;
     height: 20%;
     position: absolute;
@@ -54,8 +55,4 @@
     margin-right: -1.5em;
     width: 5vw;
     height: 5vh;
-}
-
-.copyButton:hover {
-    scale: 1.05;
 }

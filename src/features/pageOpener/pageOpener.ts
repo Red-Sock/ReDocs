@@ -6,7 +6,7 @@ import {NodeItem} from "../../entities/node/NodeItem";
 
 
 export const contentCache = new Map<string, string>()
-const srcLink= configState.link
+const srcLink = configState.link
 
 export async function openPage(id: string) {
     if (id == "") {
@@ -16,20 +16,28 @@ export async function openPage(id: string) {
     let content: string = contentCache.get(id) || ""
 
     if (content === "") {
-        await fetch( srcLink.get() + id).then(
-            r => r.text().then(r => {
-                content = r
-                contentCache.set(id, content)
-            }))
+        await fetch(srcLink.get() + id).then(
+            r => {
+                r.text().then(r => {
+                        content = r
+                        contentCache.set(id, content)
+                    }
+                )
+            }
+        )
     }
 
-    if (content) {
-        currentContent.set(content)
-        pageStructState.set(updatePageContent(content))
-    } else {
+    updatePageContent(id, content)
+}
+
+
+function updatePageContent(id: string, content: string | undefined) {
+    if (!content) {
         throw "cannot open page " + id + ": no such page"
     }
 
+    currentContent.set(content)
+    pageStructState.set(updatePageContentMenu(content))
 }
 
 const regXHeader = /(?<flag>#{1,6})\s+(?<content>.+)/g
@@ -39,13 +47,7 @@ interface heading {
     name: string
 }
 
-interface token {
-    flag: number
-    content: string
-}
-
-function updatePageContent(md: string): PageStruct {
-
+function updatePageContentMenu(md: string): PageStruct {
     const arr: heading[] = Array
         .from(
             md.matchAll(regXHeader)
@@ -68,8 +70,8 @@ function updatePageContent(md: string): PageStruct {
     } as PageStruct
 
 
-    for (let i = 1 ; i< arr.length; i++) {
-        ps = pushToPageContent(ps, arr[i].level, arr[i].name, arr[i].name,)
+    for (let i = 1; i < arr.length; i++) {
+        ps = pushToPageContent(ps, arr[i].level, arr[i].name, arr[i].name + "_" + i.toString(),)
     }
 
     return ps
@@ -105,12 +107,12 @@ function pushToPageContent(ps: PageStruct, hLevel: number, header: string, link:
 
     if (ps.lastInsertedLevel == hLevel) {
 
-        if(!ps.lastInsertedNode.parent) {
+        if (!ps.lastInsertedNode.parent) {
             ps.Root.push(newNode)
             return ps
         }
 
-        if(!ps.lastInsertedNode.parent.inner){
+        if (!ps.lastInsertedNode.parent.inner) {
             ps.lastInsertedNode.parent.inner = [newNode]
             return ps
         }
@@ -133,12 +135,12 @@ function pushToPageContent(ps: PageStruct, hLevel: number, header: string, link:
 
     if (!ps.lastInsertedNode.parent) {
         ps.Root.push(newNode)
-        ps.lastInsertedNode = ps.Root[ps.Root.length-1]
+        ps.lastInsertedNode = ps.Root[ps.Root.length - 1]
         ps.lastInsertedLevel = hLevel
         return ps
     }
 
-    if(!ps.lastInsertedNode.parent.inner) {
+    if (!ps.lastInsertedNode.parent.inner) {
         ps.lastInsertedNode.parent.inner = []
     }
 

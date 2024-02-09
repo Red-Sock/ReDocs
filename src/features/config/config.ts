@@ -9,6 +9,7 @@ export function fetchConfig() {
     }
 
     fetchViaApi<Config>(configPath).then(r => {
+        console.log(r)
         configState.set(r)
     })
 }

@@ -20,7 +20,7 @@ export function TreeNode({parentId, nodesState}: TreeNodeProps) {
                     return (
                         <TreeItem
                             nodeId={newParentId}
-                            key={node.name}
+                            key={node.link}
                             label={node.name}
 
                             onClick={() => {

@@ -13,19 +13,28 @@ export async function openPage(id: string) {
         return
     }
 
+    if (!configState.get().SectionsMap.has(id)) {
+        throw "cannot open page " + id + ": no such page in config. Error code 1"
+    }
+
+
     let content: string = contentCache.get(id) || ""
 
     if (content === "") {
-        await fetch(srcLink.get() + id).then(
+        fetch(srcLink.get() + id).then(
             r => {
+
                 r.text().then(r => {
                         content = r
                         contentCache.set(id, content)
+                        updatePageContent(id, content)
                     }
                 )
             }
         )
+        return;
     }
+
 
     updatePageContent(id, content)
 }
@@ -33,8 +42,10 @@ export async function openPage(id: string) {
 
 function updatePageContent(id: string, content: string | undefined) {
     if (!content) {
-        throw "cannot open page " + id + ": no such page"
+        throw "cannot open page \"" + id + "\": no content for page. Error code 2"
     }
+
+    window.history.replaceState(null, "", id)
 
     currentContent.set(content)
     pageStructState.set(updatePageContentMenu(content))

@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
         loader: async ({params})=> {
             // TODO get data from params['*'] to data variable
             // TODO set data via:
-            console.log(params['*'])
+
             if (typeof params['*'] !== "string") {
                 throw "unpredicted error 1"
             }

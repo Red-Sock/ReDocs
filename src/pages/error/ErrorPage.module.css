@@ -23,12 +23,14 @@
 }
 
 .errMessageBox {
+    position: absolute;
+    top: 45%;
+
     border: black dashed;
     background-color: var(--quote-background);
     width: 35%;
     height: 20%;
-    position: absolute;
-    top: 45%;
+
     text-align: center;
 
     display: flex;
@@ -56,3 +58,4 @@
     width: 5vw;
     height: 5vh;
 }
+

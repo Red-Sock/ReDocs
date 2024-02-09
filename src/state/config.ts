@@ -6,10 +6,12 @@ export interface Config {
     Tittle: string
     link: string
     Sections: NodeItem[]
+    SectionsMap: Map<string, any>;
 }
 
 export const configState = hookstate({
     Tittle: "",
     link: "",
-    Sections: []
+    Sections: [],
+    SectionsMap: new Map(),
 } as Config)

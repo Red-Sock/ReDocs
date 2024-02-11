@@ -5,33 +5,29 @@ import {openPage} from "../../../features/pageOpener/pageOpener";
 import {State} from "@hookstate/core";
 
 interface TreeNodeProps {
-    parentId: string
     nodesState: State<NodeItem[] | undefined>;
 }
 
-export function TreeNode({parentId, nodesState}: TreeNodeProps) {
+export function TreeNode({ nodesState}: TreeNodeProps) {
     return (
         <>
             {
                 nodesState.ornull &&
                 nodesState.ornull.map((nodeState: State<NodeItem>) => {
                     const node = nodeState.get()
-                    const newParentId = parentId + node.link
                     return (
                         <TreeItem
-                            nodeId={newParentId}
+                            nodeId={node.link}
                             key={node.link}
                             label={node.name}
 
                             onClick={() => {
-                                if (node.link.includes(".")) {
-                                    openPage(newParentId)
-                                }
+                                openPage(node.link)
                             }}
                         >
                             {
                                 node.inner && node.inner.length != 0 ?
-                                <TreeNode parentId={newParentId} nodesState={nodeState.inner}/> : null
+                                <TreeNode nodesState={nodeState.inner}/> : null
                             }
                         </TreeItem>
                     )

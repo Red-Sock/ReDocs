@@ -6,7 +6,7 @@ export interface Config {
     Tittle: string
     link: string
     Sections: NodeItem[]
-    SectionsMap: Map<string, any>;
+    SectionsMap: Map<string, string>;
 }
 
 export const configState = hookstate({

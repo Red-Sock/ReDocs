@@ -54,7 +54,6 @@ export function TreeWrapper({treeName, nodesState}: TreeWrapperProps) {
                     defaultEndIcon={<EndNodeIcon/>}
                 >
                     <TreeNode
-                        parentId={""}
                         nodesState={nodesState}
                     />
                 </TreeView>

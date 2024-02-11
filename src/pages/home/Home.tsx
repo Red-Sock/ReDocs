@@ -8,8 +8,6 @@ import React, {useEffect, useState} from "react";
 import {PageMenu} from "../../sections/pageMenu/pageMenu";
 
 export function Home() {
-    useEffect(fetchConfig);
-
     return (
         <div className="Home">
             <div className="sidebarHome">

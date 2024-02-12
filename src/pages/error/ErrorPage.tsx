@@ -25,13 +25,20 @@ export function ErrorPage() {
             <div className={cls.cfContainer}/>
 
             <div className={cls.errMessageBox}>
+                <div className={cls.errMessageContainer}>
 
-                <div className={cls.errMessage}>
-                    <a>{errorMessage}</a>
-                </div>
+                    <div className={cls.errMessage}>
+                        <a>{errorMessage}</a>
+                    </div>
 
-                <div className={cls.copyButton}>
-                    <CopyButton content={errorMessage}/>
+                    <div className={cls.backButton}>
+                        <a href={window.location.origin}>Go back</a>
+                        </div>
+
+                    <div className={cls.copyButton}>
+                        <CopyButton content={errorMessage}/>
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -19,6 +19,9 @@ export const router = createBrowserRouter([
             if (typeof params['*'] !== "string") {
                 throw "Unpredicted error 3"
             }
+            if (!params['*']) {
+                return null
+            }
 
             const uri = "/"+params['*']
 

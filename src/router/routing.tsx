@@ -11,22 +11,19 @@ export const router = createBrowserRouter([
     {
         path: "/*",
         element: (<Home/>),
-        loader: ({params})=> {
-            // TODO get data from params['*'] to data variable
-            // TODO set data via:
-            // console.log(params['*'])
-            // if (!params){
-            //     throw "Error opening page"
-            // }
-            //
-            // if (typeof params['*'] !== "string") {
-            //     throw "Unpredicted error 3"
-            // }
-            //
-            // const uri = params['*']
-            //
-            // openPage(uri)
-            //
+        loader: async ({params}) => {
+            if (!params) {
+                throw "Error opening page"
+            }
+
+            if (typeof params['*'] !== "string") {
+                throw "Unpredicted error 3"
+            }
+
+            const uri = "/"+params['*']
+
+            await openPage(uri)
+
             return null
         },
         errorElement: (<ErrorPage/>)

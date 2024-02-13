@@ -7,7 +7,7 @@
 
     justify-items: center;
     align-items: center;
-    background: url("src/assets/img/error.svg") 50% 15% no-repeat;
+    background: url("error.svg") 50% 15% no-repeat;
 
     background-size: 20%;
     width: 100vw;
@@ -23,24 +23,43 @@
 }
 
 .errMessageBox {
-    border: black dashed;
-    width: 35%;
-    height: 20%;
     position: absolute;
     top: 45%;
-    text-align: center;
+
+    border: black dashed;
+    background-color: var(--quote-background);
+    width: 35vw;
+    height: 20vh;
+
+
+    box-sizing: content-box;
+}
+
+.errMessageContainer {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 2em;
 
     display: flex;
     flex-flow: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 2em;
     gap: 10%;
+    text-align: center;
+
+    box-sizing: border-box;
 }
 
 .errMessage {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    box-sizing: border-box;
 
     display: flex;
     justify-content: center;
@@ -50,12 +69,26 @@
 }
 
 .copyButton {
-    margin-top: -1.5em;
-    margin-right: -1.5em;
+    position: absolute;
+
+    top: 0.5em;
+    right: 0.5em;
+
     width: 5vw;
     height: 5vh;
 }
 
-.copyButton:hover {
-    scale: 1.05;
+
+.backButton {
+    position: absolute;
+
+    top: 0.5em;
+
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 50%;
+    height: 5vh;
 }

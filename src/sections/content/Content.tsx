@@ -30,7 +30,7 @@ export default function ContentWrapper() {
                         if (!className ||
                             typeof children !== 'string' ||
                             !className.startsWith("language-")) {
-                            return <code>{children}</code>
+                            return <>{children}</>
                         }
                         return (
                             <CodeWrapper

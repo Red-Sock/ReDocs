@@ -1,0 +1,8 @@
+.copyWrapper {
+    width: 2em;
+}
+
+.copyWrapper:hover {
+    scale: 1.05;
+    cursor: pointer;
+}

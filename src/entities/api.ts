@@ -1,4 +1,4 @@
-export function fetchViaApi<T>(url: string): Promise<T> {
+export async function fetchViaApi<T>(url: string): Promise<T> {
     return fetch(url, {cache: "no-store"})
         .then(response => {
             if (!response.ok) {

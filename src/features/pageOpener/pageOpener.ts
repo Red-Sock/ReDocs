@@ -48,8 +48,10 @@ function updatePageContent(id: string, content: string | undefined) {
     if (!content) {
         throw "cannot open page \"" + id + "\": no content for page. Error code 2"
     }
-
-    window.history.replaceState(null, "", id)
+    if (!id.startsWith('/')) {
+        id = '/' + id
+    }
+    window.history.replaceState(null, "", import.meta.env.BASE_URL + id)
 
     currentContent.set(content)
     pageStructState.set(updatePageContentMenu(content))

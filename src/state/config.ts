@@ -5,6 +5,7 @@ import { hookstate } from '@hookstate/core';
 export interface Config {
     Tittle: string
     link: string
+    basicPage: string
     Sections: NodeItem[]
     SectionsMap: Map<string, string>;
 }
@@ -12,6 +13,7 @@ export interface Config {
 export const configState = hookstate({
     Tittle: "",
     link: "",
+    basicPage: "",
     Sections: [],
     SectionsMap: new Map(),
 } as Config)

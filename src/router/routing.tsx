@@ -36,8 +36,8 @@ export const router = createBrowserRouter([
             if (url.startsWith(import.meta.env.BASE_URL)) {
                 url = url.substring(import.meta.env.BASE_URL.length)
             }
-            console.log(url)
-            if (url === "") {
+
+            if (url === "" || url === "/") {
                 url = configState.get().basicPage
             }
 

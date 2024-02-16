@@ -1,8 +1,8 @@
 import {currentContent} from "../../state/currentContent";
 import {configState} from "../../state/config";
 
-import {PageStruct, pageStructState} from "../../state/pageStruct";
-import {NodeItem} from "../../entities/node/NodeItem";
+import { pageStructState} from "../../state/pageStruct";
+
 import {updatePageContentMenu} from "./headerParser";
 
 export const contentCache = new Map<string, string>()
@@ -48,10 +48,15 @@ function updatePageContent(id: string, content: string | undefined) {
     if (!content) {
         throw "cannot open page \"" + id + "\": no content for page. Error code 2"
     }
+
     if (!id.startsWith('/')) {
         id = '/' + id
     }
-    window.history.replaceState(null, "", import.meta.env.BASE_URL + id)
+    let url = import.meta.env.BASE_URL
+    if (!url.endsWith("/")) {
+        url += "/"
+    }
+    window.history.replaceState(null, "",  url+'#'+ id)
 
     currentContent.set(content)
     pageStructState.set(updatePageContentMenu(content))

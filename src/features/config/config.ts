@@ -38,7 +38,8 @@ function walkInner(parentInfo: {
 }, nodeItems: NodeItem[], m: Map<string, string>): NodeItem[] {
     for (let i = 0; i < nodeItems.length; i++) {
         //encodeURIComponent
-        const redocsURL = parentInfo.urlName + "/" + nodeItems[i].name
+        let redocsURL = parentInfo.urlName + "/" + nodeItems[i].name
+        redocsURL = redocsURL.replace(" ", "%20")
 
         m.set(redocsURL, parentInfo.link + nodeItems[i].link)
 

@@ -24,6 +24,7 @@ export function TreeNode({ nodesState}: TreeNodeProps) {
                             onClick={() => {
                                 openPage(node.link)
                             }}
+                            id={node.link}
                         >
                             {
                                 node.inner && node.inner.length != 0 ?

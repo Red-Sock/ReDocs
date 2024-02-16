@@ -11,34 +11,17 @@ export const router = createBrowserRouter([
     {
         path: "/*",
         element: (<Home/>),
-        loader: async ({params}) => {
+        loader: async () => {
             await fetchConfig()
 
-            if (!params) {
-                throw "Error opening page"
-            }
-
-
-            if (typeof params['*'] !== "string") {
-                throw "Unpredicted error 3"
-            }
-
-            if (!params['*']) {
-                return null
-            }
-
-            let url = params['*']
-
-            if (!url?.startsWith('/')) {
-                url = "/"+url
-            }
-
-            if (url.startsWith(import.meta.env.BASE_URL)) {
-                url = url.substring(import.meta.env.BASE_URL.length)
-            }
+            let url = document.location.hash.substring(1)
 
             if (url === "" || url === "/") {
                 url = configState.get().basicPage
+            }
+
+            if (!url?.startsWith('/')) {
+                url = "/"+url
             }
 
             await openPage(url)

@@ -12,7 +12,7 @@ import {Logo} from "../../assets/img/logo";
 
 export default function SiteMenu() {
     const config = useHookstate(configState);
-    const nodes = useHookstate<NodeItem[] | undefined, {}>(config.Sections)
+    const nodes = useHookstate<NodeItem[] | undefined, {}>(config.sections)
 
     return (
         <div className={cls.Container}>
@@ -22,12 +22,12 @@ export default function SiteMenu() {
                 </div>
 
                 <div className={cls.HeaderText}>
-                    {config.get().Tittle}
+                    {config.get().tittle}
                 </div>
             </div>
             <div className={cls.Tree}>
                 <TreeWrapper
-                    treeName={config.get().Tittle}
+                    treeName={config.get().tittle}
                     nodesState={nodes}/>
             </div>
         </div>

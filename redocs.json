@@ -1,8 +1,8 @@
 {
-  "Tittle": "ReDocs",
+  "tittle": "ReDocs",
   "link": "https://raw.githubusercontent.com/Red-Sock/ReDocs/main",
   "basicPage": "Introduction",
-  "Sections": [
+  "sections": [
     {
       "name": "Introduction",
       "link": "/README.md"

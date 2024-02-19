@@ -13,7 +13,7 @@ export async function openPage(id: string) {
         return
     }
 
-    const link = configState.get().SectionsMap.get(id)
+    const link = configState.get().sectionsMap.get(id)
     if (!link) {
         throw "cannot open page " + id + ": no such page in config. Error code 1"
     }

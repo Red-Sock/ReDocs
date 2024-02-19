@@ -4,7 +4,7 @@ import {fetchViaApi} from "../../entities/api";
 import {NodeItem} from "../../entities/node/NodeItem";
 
 export async function fetchConfig(forceUpdate = false) {
-    if (configState.get().Tittle !== "" && !forceUpdate) {
+    if (configState.get().tittle !== "" && !forceUpdate) {
         return
     }
 
@@ -13,15 +13,15 @@ export async function fetchConfig(forceUpdate = false) {
         throw "No config path. Set config via VITE_REDOCS_CONFIG environment variable"
     }
 
-    if (configState.get().Tittle !== "") {
+    if (configState.get().tittle !== "") {
         return new Promise(() => {
         })
     }
 
 
     const r = await fetchViaApi<Config>(configPath)
-    r.SectionsMap = new Map<string, string>()
-    r.Sections = walkInner({urlName: "", link: ""}, r.Sections, r.SectionsMap)
+    r.sectionsMap = new Map<string, string>()
+    r.sections = walkInner({urlName: "", link: ""}, r.sections, r.sectionsMap)
 
 
     if (!r.basicPage.startsWith("/")) {

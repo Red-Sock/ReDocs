@@ -3,7 +3,7 @@ import './index.module.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import {router} from "./router/routing";
+import {router} from "./router/Routing";
 
 import {RouterProvider} from "react-router-dom";
 

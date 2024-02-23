@@ -58,6 +58,6 @@ function updatePageContent(id: string, content: string | undefined) {
     }
     window.history.replaceState(null, "",  url+'#'+ id)
 
-    currentContent.set(content)
+    currentContent.content.set(content)
     pageStructState.set(updatePageContentMenu(content))
 }

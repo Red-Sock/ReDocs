@@ -1,16 +1,16 @@
 import "./Home.css";
 
-import SiteMenu from "../../sections/siteMenu/SiteMenu";
+import GlobalMenu from "../../sections/siteMenu/SiteMenu";
 import ContentWrapper from "../../sections/content/Content";
 
 import React from "react";
-import {PageMenu} from "../../sections/pageMenu/pageMenu";
+import {SideMenu} from "../../sections/pageMenu/SideMenu";
 
 export function Home() {
     return (
         <div className="Home">
             <div className="sidebarHome">
-                <SiteMenu/>
+                <GlobalMenu/>
             </div>
 
             <div className="contentHome">
@@ -18,7 +18,7 @@ export function Home() {
             </div>
 
             <div className="contentMenu">
-                <PageMenu/>
+                <SideMenu/>
             </div>
         </div>
     );

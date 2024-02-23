@@ -14,7 +14,7 @@ interface CodeWrapperProps {
 export default function CodeWrapper({content, language}: CodeWrapperProps) {
 
     return (
-        <div className={styles.CodeWrapper}>
+        <code className={styles.CodeWrapper}>
             <SyntaxHighlighter
                 PreTag="div"
                 style={dracula}
@@ -29,6 +29,6 @@ export default function CodeWrapper({content, language}: CodeWrapperProps) {
             <div className={styles.copyWrapper}>
                 <CopyButton content={content}/>
             </div>
-        </div>
+        </code>
     );
 }

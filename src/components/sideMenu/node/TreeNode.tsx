@@ -6,15 +6,17 @@ import {State} from "@hookstate/core";
 
 interface TreeNodeProps {
     nodesState: State<NodeItem[] | undefined>;
+    onItemClick: (nodeLink: string)=>void
 }
 
-export function TreeNode({ nodesState}: TreeNodeProps) {
+export function TreeNode({ nodesState, onItemClick }: TreeNodeProps) {
     return (
         <>
             {
                 nodesState.ornull &&
                 nodesState.ornull.map((nodeState: State<NodeItem>) => {
                     const node = nodeState.get()
+
                     return (
                         <TreeItem
                             nodeId={node.link}
@@ -22,13 +24,13 @@ export function TreeNode({ nodesState}: TreeNodeProps) {
                             label={node.name}
 
                             onClick={() => {
-                                openPage(node.link)
+                                onItemClick(node.link)
                             }}
                             id={node.link}
                         >
                             {
                                 node.inner && node.inner.length != 0 ?
-                                <TreeNode nodesState={nodeState.inner}/> : null
+                                <TreeNode nodesState={nodeState.inner} onItemClick={onItemClick}/> : null
                             }
                         </TreeItem>
                     )

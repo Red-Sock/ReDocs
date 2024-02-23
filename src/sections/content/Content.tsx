@@ -5,7 +5,7 @@ import CodeWrapper from "../../components/docContent/basic/code/CodeWrapper";
 import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
 import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
 
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from 'rehype-raw'
@@ -13,7 +13,6 @@ import rehypeSlug from 'rehype-slug'
 
 import {useHookstate} from "@hookstate/core";
 import {currentContent} from "../../state/currentContent";
-
 
 export default function ContentWrapper() {
     const content = useHookstate(currentContent)
@@ -24,14 +23,13 @@ export default function ContentWrapper() {
                 className="markdown-body"
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw,rehypeSlug]}
-                children={content.value}
+                children={content.get().content}
                 components={{
                     code({className, children}) {
-                        if (!className ||
-                            typeof children !== 'string' ||
-                            !className.startsWith("language-")) {
-                            return <>{children}</>
+                        if (!className || typeof children !== 'string') {
+                            return (<code>{children}</code>)
                         }
+
                         return (
                             <CodeWrapper
                                 content={children.toString()}

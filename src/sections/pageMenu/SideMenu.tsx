@@ -6,8 +6,9 @@ import {useHookstate} from "@hookstate/core";
 import {TreeWrapper} from "../../components/sideMenu/TreeWrapper";
 
 import {NodeItem} from "../../entities/node/NodeItem";
+import {openPage} from "../../features/pageOpener/pageOpener";
 
-export function PageMenu() {
+export function SideMenu() {
     const nodes =  useHookstate<NodeItem[] | undefined, {}>(pageStructState.Root)
 
     if (!nodes || !nodes.value || nodes.value.length === 0) {
@@ -18,7 +19,8 @@ export function PageMenu() {
         <div className={cls.pageMenu}>
             <TreeWrapper
                 treeName={"pageStruct"}
-                nodesState={nodes}/>
+                nodesState={nodes}
+            />
         </div>
     )
 }

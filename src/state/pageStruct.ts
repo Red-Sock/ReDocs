@@ -8,9 +8,3 @@ export interface PageStruct {
 }
 
 export const pageStructState = hookstate({} as PageStruct)
-
-
-
-
-
-

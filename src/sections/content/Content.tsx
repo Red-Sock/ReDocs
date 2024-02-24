@@ -6,13 +6,18 @@ import QuoteWrapper from "../../components/docContent/basic/quote/QuoteWrapper";
 import LinkWrapper from "../../components/docContent/basic/link/LinkWrapper";
 
 import React from "react";
+
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypeRaw from 'rehype-raw'
-import rehypeSlug from 'rehype-slug'
+import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
+import remarkHeadings from '@vcarl/remark-headings';
 
 import {useHookstate} from "@hookstate/core";
 import {currentContent} from "../../state/currentContent";
+
+import withToc from "@stefanprobst/rehype-extract-toc"
+import {collectHeadings} from "./table-of-content-parser";
 
 export default function ContentWrapper() {
     const content = useHookstate(currentContent)
@@ -21,9 +26,10 @@ export default function ContentWrapper() {
         <div className={styles.ContentWrapper}>
             <Markdown
                 className="markdown-body"
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw,rehypeSlug]}
+                remarkPlugins={[remarkGfm, remarkHeadings]}
+                rehypePlugins={[rehypeRaw, rehypeSlug, withToc, collectHeadings]}
                 children={content.get().content}
+
                 components={{
                     code({className, children}) {
                         if (!className || typeof children !== 'string') {
@@ -37,12 +43,13 @@ export default function ContentWrapper() {
                             />
                         );
                     },
-                    a({href, children}) {
+
+                    a: ({href, children}) => {
                         if (!href || !children) {
                             return (<a>{children}</a>)
                         }
 
-                        if (typeof  children !== "string") {
+                        if (typeof children !== "string") {
                             return (<a href={href}>{children}</a>)
                         }
 
@@ -54,42 +61,7 @@ export default function ContentWrapper() {
                         )
                     },
 
-                    h1({children}) {
-                        if (!children || typeof children !== "string") {
-                            return <></>
-                        }
-
-                        return (
-                            <h1>{children}</h1>
-                        )
-                    },
-                    h2({children}) {
-                        return (
-                            <h2>{children}</h2>
-                        )
-                    },
-                    h3({children}) {
-                        return (
-                            <h3>{children}</h3>
-                        )
-                    },
-                    h4({children}) {
-                        return (
-                            <h4>{children}</h4>
-                        )
-                    },
-                    h5({children}) {
-                        return (
-                            <h5>{children}</h5>
-                        )
-                    },
-                    h6({children}) {
-                        return (
-                            <h6>{children}</h6>
-                        )
-                    },
-
-                    blockquote({children}) {
+                    blockquote: ({children}) => {
                         if (!children) {
                             return <></>
                         }

@@ -1,6 +1,6 @@
 export interface NodeItem {
     name: string;
     link: string;
-    inner?: NodeItem[];
+    inner: Array<NodeItem>;
     parent?: NodeItem
 }

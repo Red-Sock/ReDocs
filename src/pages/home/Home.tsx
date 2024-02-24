@@ -4,7 +4,7 @@ import GlobalMenu from "../../sections/siteMenu/SiteMenu";
 import ContentWrapper from "../../sections/content/Content";
 
 import React from "react";
-import {SideMenu} from "../../sections/pageMenu/SideMenu";
+import {PageContent} from "../../sections/pageMenu/PageContent";
 
 export function Home() {
     return (
@@ -18,7 +18,7 @@ export function Home() {
             </div>
 
             <div className="contentMenu">
-                <SideMenu/>
+                <PageContent/>
             </div>
         </div>
     );

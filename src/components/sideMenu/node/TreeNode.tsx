@@ -1,11 +1,10 @@
 import {TreeItem} from "@mui/x-tree-view";
 
 import {NodeItem} from "../../../entities/node/NodeItem";
-import {openPage} from "../../../features/pageOpener/pageOpener";
 import {State} from "@hookstate/core";
 
 interface TreeNodeProps {
-    nodesState: State<NodeItem[] | undefined>;
+    nodesState: State<NodeItem[]>;
     onItemClick: (nodeLink: string)=>void
 }
 

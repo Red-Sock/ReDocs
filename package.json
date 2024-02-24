@@ -22,7 +22,9 @@
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "@mui/x-tree-view": "^6.0.0-beta.0",
+    "@stefanprobst/rehype-extract-toc": "^2.2.0",
     "@thelukester92/markdown-it-react": "^0.0.5",
+    "@vcarl/remark-headings": "^0.1.0",
     "framer-motion": "^10.16.4",
     "github-markdown-css": "^5.5.0",
     "highlight.js": "^11.9.0",
@@ -40,9 +42,12 @@
     "rehype-slug": "^6.0.0",
     "remark-code-blocks": "^2.0.1",
     "remark-gfm": "^4.0.0",
+    "remark-heading-id": "^1.0.1",
     "remark-html": "^16.0.1",
     "remarkable": "^2.0.1",
-    "styled-components": "^6.1.0"
+    "styled-components": "^6.1.0",
+    "unified": "^11.0.4",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",

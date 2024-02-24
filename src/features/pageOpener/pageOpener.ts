@@ -1,10 +1,6 @@
 import {currentContent} from "../../state/currentContent";
 import {configState} from "../../state/config";
 
-import { pageStructState} from "../../state/pageStruct";
-
-import {updatePageContentMenu} from "./headerParser";
-
 export const contentCache = new Map<string, string>()
 const srcLink = configState.link
 
@@ -59,5 +55,4 @@ function updatePageContent(id: string, content: string | undefined) {
     window.history.replaceState(null, "",  url+'#'+ id)
 
     currentContent.content.set(content)
-    pageStructState.set(updatePageContentMenu(content))
 }

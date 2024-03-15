@@ -2,7 +2,6 @@ import {NodeItem} from "../entities/node/NodeItem";
 
 import { hookstate } from '@hookstate/core';
 
-
 export interface Config {
     tittle: string
     link: string

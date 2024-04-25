@@ -4,7 +4,7 @@ import {NodeItem} from "../../../entities/node/NodeItem";
 import {State} from "@hookstate/core";
 
 interface TreeNodeProps {
-    nodesState: State<NodeItem[]>;
+    nodesState: State<NodeItem[]> ;
     onItemClick: (nodeLink: string)=>void
 }
 
@@ -12,8 +12,8 @@ export function TreeNode({ nodesState, onItemClick }: TreeNodeProps) {
     return (
         <>
             {
-                nodesState.ornull &&
-                nodesState.ornull.map((nodeState: State<NodeItem>) => {
+                nodesState &&
+                nodesState.map((nodeState: State<NodeItem>) => {
                     const node = nodeState.get()
 
                     return (

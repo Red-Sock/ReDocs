@@ -13,9 +13,9 @@ import React from "react";
 
 interface TreeWrapperProps {
     treeName: string;
-    nodesState: State<NodeItem[] | undefined>;
+    nodesState: State<NodeItem[]>;
 
-    onItemClick?: (nodeLink: string)=> void;
+    onItemClick?: (nodeLink: string) => void;
 
     expanded?: string[];
     selected?: string;
@@ -23,10 +23,19 @@ interface TreeWrapperProps {
     handleSelect?: (event: React.SyntheticEvent, nodeIds: string) => void;
 }
 
-export function TreeWrapper({treeName, nodesState, expanded, selected, handleToggle, handleSelect, onItemClick}: TreeWrapperProps) {
+export function TreeWrapper({
+                                treeName,
+                                nodesState,
+                                expanded,
+                                selected,
+                                handleToggle,
+                                handleSelect,
+                                onItemClick
+                            }: TreeWrapperProps) {
 
-    if (!onItemClick){
-        onItemClick = (link: string)=> {}
+    if (!onItemClick) {
+        onItemClick = (link: string) => {
+        }
     }
 
     const theme = createTheme({

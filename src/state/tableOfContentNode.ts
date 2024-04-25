@@ -5,4 +5,4 @@ export interface TableOfContentNode {
     nodes: NodeItem[]
 }
 
-export const tableOfContent = hookstate({} as TableOfContentNode)
+export const tableOfContent = hookstate({nodes: []} as TableOfContentNode)

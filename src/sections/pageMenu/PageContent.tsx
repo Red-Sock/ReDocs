@@ -6,10 +6,9 @@ import {useHookstate} from "@hookstate/core";
 import {TreeWrapper} from "../../components/sideMenu/TreeWrapper";
 
 import {NodeItem} from "../../entities/node/NodeItem";
-import {openPage} from "../../features/pageOpener/pageOpener";
 
 export function PageContent() {
-    const nodes = useHookstate<NodeItem[] | undefined, {}>(tableOfContent.nodes)
+    const nodes = useHookstate<NodeItem[], {}>(tableOfContent.nodes)
 
     return (
         <div className={cls.pageMenu}>

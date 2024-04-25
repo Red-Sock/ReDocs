@@ -14,7 +14,7 @@ import {openPage} from "../../features/pageOpener/pageOpener";
 
 export default function SiteMenu() {
     const config = useHookstate(configState);
-    const nodes = useHookstate<NodeItem[] | undefined, {}>(config.sections)
+    const nodes = useHookstate<NodeItem[], {}>(config.sections)
 
     const [expanded, setExpanded] = React.useState<string[]>([]);
     const [selected, setSelected] = React.useState<string>('');
